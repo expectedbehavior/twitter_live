@@ -18,10 +18,10 @@ development:
   adapter: mysql
   encoding: utf8
   reconnect: false
-  database: twitter_live_development
+  database: tlive_development
   pool: 5
-  username: root
-  password:
+  username: twitter_dev
+  password: password
   socket: /tmp/mysql.sock
 
 # Warning: The database defined as "test" will be erased and
@@ -31,18 +31,18 @@ test:
   adapter: mysql
   encoding: utf8
   reconnect: false
-  database: twitter_live_test
+  database: tlive_test
   pool: 5
-  username: root
-  password:
+  username: twitter_test
+  password: password
   socket: /tmp/mysql.sock
 
 production:
   adapter: mysql
   encoding: utf8
   reconnect: false
-  database: twitter_live_production
+  database: tlive_production
   pool: 5
-  username: root
-  password: 
+  username: twitter_prod
+  password: password
   socket: /tmp/mysql.sock
