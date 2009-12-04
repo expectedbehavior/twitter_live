@@ -18,6 +18,12 @@
   <div>
     <p style="color: green"><%= flash[:notice] %></p>
 
+    <% form_tag search_tweets_path, :method => :get do %>
+      <%= text_field_tag :q %>
+      <%= submit_tag "search" %>
+    <% end %>
+
+
     <%= yield %>
   </div>
 
