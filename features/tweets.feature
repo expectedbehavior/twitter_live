@@ -11,3 +11,4 @@ Feature: Let's talk in short sentences
     When I fill in "What's happening?" with "I seem to have set my hands on fire. Well, chemically. Well, by cutting peppers without wearing gloves. Look, what matters is OMG IT BURNS."
     And I press "update"
     Then I should see "I seem to have set my hands on fire. Well, chemically. Well, by cutting peppers without wearing gloves. Look, what matters is OMG IT BURNS."
+    And I should see "What's happening?"
