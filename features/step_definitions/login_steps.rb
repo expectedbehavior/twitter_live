@@ -6,7 +6,7 @@ def login_user_with_default_password(user)
   And "I fill in \"Login\" with \"#{user.login}\""
   And "I fill in \"Password\" with \"#{password}\""
   And "I press \"Log in\""
-  And "I should see \"Login successful!\""
+  And "I should see \"Logged in successfully\""
 end
 
 Given /^I (am logged|log) in as "([^\"]*)"$/ do |x, name|
