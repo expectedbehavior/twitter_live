@@ -1,2 +1,4 @@
 test:
   port: 31338
+development:
+  port: 31337
