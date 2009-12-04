@@ -9,16 +9,24 @@
 </head>
 <body>
 
-  <div>
+  <div style="float: right;">
     <%= link_to "signup", signup_path %> |
     <%= link_to "login", login_path %> |
     <%= link_to "logout", logout_path %>
   </div>
 
-  <div>
+  <div style="width: 800px; margin: 0px auto;">
     <p style="color: green"><%= flash[:notice] %></p>
 
-    <%= yield %>
+    <div style="width: 500px; float: left;">
+      <%= yield %>
+    </div>
+    <div style="width: 300px; float: left;">
+      <% form_tag search_tweets_path, :method => :get do %>
+        <%= text_field_tag :q %>
+        <%= submit_tag "search" %>
+      <% end %>
+    </div>
   </div>
 
 </body>
