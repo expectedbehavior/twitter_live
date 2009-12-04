@@ -57,8 +57,8 @@ class User < ActiveRecord::Base
     write_attribute :email, (value ? value.downcase : nil)
   end
   
-  def timeline # STUB
-    Tweet.find(:all, :conditions => {:user_id => self.followees.map(&:id) })
+  def timeline
+    Tweet.find(:all, :conditions => {:user_id => self.followees.map(&:id) << self.id })
   end
 
   protected
