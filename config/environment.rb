@@ -1,3 +1,23 @@
+OSX_JAVA_HOME = "/System/Library/Frameworks/JavaVM.framework/Home"
+UBUNTU_JAVA_HOME = "/usr/lib/jvm/java-1.5.0-sun"
+
+if File.exists?(OSX_JAVA_HOME)
+  ENV["JAVA_HOME"] = OSX_JAVA_HOME
+elsif File.exists?(UBUNTU_JAVA_HOME)
+  ENV["JAVA_HOME"] = UBUNTU_JAVA_HOME
+end 
+
+# MWG: I'm pretty sure this doesn't do anything, but it was hard to find so I'm leaving it here.
+#ENV["LD_LIBRARY_PATH"] = "#{ENV['LD_LIBRARY_PATH']}:#{ENV['JAVA_HOME']}/jre/lib/i386:#{ENV['JAVA_HOME']}/jre/lib/i386/client"
+
+
+# add jruby at the end of the path for culerity
+ENV['PATH'] ||= ""
+ENV['PATH'] = ENV['PATH'] + ":" + File.join(File.dirname(__FILE__), '..', 'vendor', 'jruby-1.3.1', 'bin')
+ENV['PATH'] = ENV['PATH'] + ":" + File.join('', 'opt', 'local', 'bin') # so paperclip can find imagemagick
+
+
+
 # Be sure to restart your server when you modify this file
 
 # Specifies gem version of Rails to use when vendor/rails is not present
