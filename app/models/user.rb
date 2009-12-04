@@ -7,7 +7,9 @@ class User < ActiveRecord::Base
   include Authorization::AasmRoles
   
   has_many :tweets
-
+  has_many :followings, :foreign_key => "follower_id"
+  has_many :followees, :through => :followings, :source => :followee
+  
   validates_presence_of     :login
   validates_length_of       :login,    :within => 3..40
   validates_uniqueness_of   :login
