@@ -41,7 +41,7 @@ class TweetsController < ApplicationController
   # POST /tweets
   # POST /tweets.xml
   def create
-    @tweet = Tweet.new(params[:tweet])
+    @tweet = current_user.tweets.build(params[:tweet])
 
     respond_to do |format|
       if @tweet.save
