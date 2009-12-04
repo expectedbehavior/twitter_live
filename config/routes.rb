@@ -1,7 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :followings
 
-  map.resources :tweets
+  map.resources :tweets, :collection => { :search => :get }
 
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
   map.login '/login', :controller => 'sessions', :action => 'new'
