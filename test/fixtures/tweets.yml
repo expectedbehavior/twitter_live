@@ -1,9 +1,9 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  integer: 
-  string: 
+  user_id: 1
+  content: MyString
 
 two:
-  integer: 
-  string: 
+  user_id: 1
+  content: MyString
