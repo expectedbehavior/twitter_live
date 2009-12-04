@@ -16,8 +16,7 @@ class TweetsController < ApplicationController
   end
   
   def search
-#     @tweets = Tweet.search(params[:q])
-    @tweets = Tweet.all
+    @tweets = Tweet.search(params[:q])
     @tweet = Tweet.new
     render :action => "index"
   end
