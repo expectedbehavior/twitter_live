@@ -10,6 +10,11 @@
 <body>
 
   <div>
+    <%= link_to "login", login_path %> |
+    <%= link_to "logout", logout_path %>
+  </div>
+
+  <div>
     <p style="color: green"><%= flash[:notice] %></p>
 
     <%= yield %>
