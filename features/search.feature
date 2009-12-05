@@ -9,9 +9,9 @@ Feature: Find Stuff
     And there is a user named "Bruce"
     And that user has "login" set to "Bruce"
     When I log in as "Chuck"
-    And I click "Find People"
-    And I fill in "search" with "Bruce"
-    Then I should see "Bruce"
+    And I fill in "Find People" with "Bruce"
+    And I press "find people"
+    Then I should see "bruce"
     When I click "follow"
-    Then I should see "You are now following Bruce"
+    Then I should see "You are now following bruce"
     

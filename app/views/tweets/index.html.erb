@@ -12,7 +12,7 @@
       </p>
     <% end %>
   <% else %>
-    <%= link_to "follow", followings_path(:following => {:followee_id => @user.id}), :method => :post %>
+    <%= link_to "follow", followings_path(:following => {:followee_id => @user.id}), :method => :post if @user %>
   <% end %>
 <% end %>
 

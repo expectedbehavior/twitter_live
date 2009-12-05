@@ -14,6 +14,12 @@ class TweetsController < ApplicationController
       format.xml  { render :xml => @tweets }
     end
   end
+  
+  def search
+    @tweets = Tweet.search(params[:search_tweets])
+    @tweet = Tweet.new
+    render :action => "index"
+  end
 
   # GET /tweets/1
   # GET /tweets/1.xml

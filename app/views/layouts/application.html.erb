@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title><%=h params[:controller].titleize %>: <%= controller.action_name %></title>
+  <%= stylesheet_link_tag 'scaffold' %>
+</head>
+<body>
+
+  <div style="float: right;">
+    <%= link_to "signup", signup_path %> |
+    <%= link_to "login", login_path %> |
+    <%= link_to "logout", logout_path %>
+  </div>
+
+  <div style="width: 800px; margin: 0px auto;">
+    <p style="color: green"><%= flash[:notice] %></p>
+
+    <div style="width: 500px; float: left;">
+      <%= yield %>
+    </div>
+    <div style="width: 300px; float: left;">
+      <% form_tag search_tweets_path, :method => :get do %>
+        <%= label_tag :search_tweets, "Find Tweets" %>
+        <%= text_field_tag :search_tweets %>
+        <%= submit_tag "find tweets" %>
+      <% end %>
+  
+      <% form_tag search_users_path, :method => :get do %>
+        <%= label_tag :search_people, "Find People" %>
+        <%= text_field_tag :search_people %>
+        <%= submit_tag "find people" %>
+      <% end %>
+    </div>
+  </div>
+
+</body>
+</html>
