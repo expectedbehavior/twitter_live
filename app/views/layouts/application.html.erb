@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <title>Tweets: <%= controller.action_name %></title>
+  <title><%=h params[:controller].titleize %>: <%= controller.action_name %></title>
   <%= stylesheet_link_tag 'scaffold' %>
 </head>
 <body>
@@ -19,8 +19,15 @@
     <p style="color: green"><%= flash[:notice] %></p>
 
     <% form_tag search_tweets_path, :method => :get do %>
-      <%= text_field_tag :q %>
-      <%= submit_tag "search" %>
+      <%= label_tag :search_tweets, "Find Tweets" %>
+      <%= text_field_tag :search_tweets %>
+      <%= submit_tag "find tweets" %>
+    <% end %>
+
+    <% form_tag search_users_path, :method => :get do %>
+      <%= label_tag :search_people, "Find People" %>
+      <%= text_field_tag :search_people %>
+      <%= submit_tag "find people" %>
     <% end %>
 
 

@@ -44,7 +44,7 @@ class FollowingsController < ApplicationController
 
     respond_to do |format|
       if @following.save
-        flash[:notice] = "You are now following #{@following.followee.name}"
+        flash[:notice] = "You are now following #{@following.followee.login}"
         format.html { redirect_to([@following.followee, :tweets]) }
         format.xml  { render :xml => @following, :status => :created, :location => @following }
       else

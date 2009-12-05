@@ -1,0 +1,17 @@
+<h1>Listing users</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th></th>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr>
+    <td><%=h user.login %></td>
+    <td>
+      <%= link_to "follow", followings_path(:following => {:followee_id => user.id}), :method => :post %>
+    </td>
+  </tr>
+<% end %>
+</table>
