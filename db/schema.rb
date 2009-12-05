@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091205144235) do
+ActiveRecord::Schema.define(:version => 20091205151850) do
 
   create_table "direct_messages", :force => true do |t|
     t.integer  "sender_id"
@@ -22,6 +22,14 @@ ActiveRecord::Schema.define(:version => 20091205144235) do
   create_table "followings", :force => true do |t|
     t.integer  "follower_id"
     t.integer  "followee_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "timelines", :force => true do |t|
+    t.integer  "timelineable_id"
+    t.string   "timelineable_type"
+    t.integer  "tweet_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

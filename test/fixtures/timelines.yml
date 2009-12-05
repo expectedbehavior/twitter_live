@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  timelineable_id: 1
+  timelineable_type: MyString
+  tweet_id: 1
+
+two:
+  timelineable_id: 1
+  timelineable_type: MyString
+  tweet_id: 1

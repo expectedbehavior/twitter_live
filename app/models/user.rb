@@ -10,8 +10,14 @@ class User < ActiveRecord::Base
   has_many :followings, :foreign_key => "follower_id"
   has_many :followees, :through => :followings, :source => :followee
 
+  has_many :stalkings, :class_name => "Following", :foreign_key => "followee_id"
+  has_many :stalkers, :through => :stalkings, :source => :follower
+
+  
   has_many :sent_messages, :class_name => "DirectMessage", :foreign_key => "sender_id"
   has_many :received_messages, :class_name => "DirectMessage", :foreign_key => "receiver_id"
+  
+  has_one :timeline, :as => :timelineable
   
   validates_presence_of     :login
   validates_length_of       :login,    :within => 3..40
