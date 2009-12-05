@@ -33,6 +33,13 @@
         <%= text_field_tag :search_people %>
         <%= submit_tag "find people" %>
       <% end %>
+
+      <div>
+        <h2>Trends</h2>
+        <% Tweet.trends(:start_time => 1.week.ago).each do |tag| %>
+          <%= link_to h(tag), search_tweets_path(:search_tweets => tag) %><br/>
+        <% end %>
+      </div>
     </div>
   </div>
 
