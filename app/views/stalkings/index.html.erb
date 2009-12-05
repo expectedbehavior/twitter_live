@@ -1,0 +1,22 @@
+<h1>Listing stalkings</h1>
+
+<table>
+  <tr>
+    <th>Stalker</th>
+    <th>Stalkee</th>
+  </tr>
+
+<% @stalkings.each do |stalking| %>
+  <tr>
+    <td><%=h stalking.stalker_id %></td>
+    <td><%=h stalking.stalkee_id %></td>
+    <td><%= link_to 'Show', stalking %></td>
+    <td><%= link_to 'Edit', edit_stalking_path(stalking) %></td>
+    <td><%= link_to 'Destroy', stalking, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New stalking', new_stalking_path %>

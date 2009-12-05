@@ -1,8 +1,12 @@
 class TweetsController < ApplicationController
+  
+  before_filter :find_user
+  
   # GET /tweets
   # GET /tweets.xml
   def index
-    @tweets = Tweet.all
+    redirect_to [current_user, :tweets] and return if logged_in? and !@user
+    @tweets = @user.andand.timeline || Tweet.all
     @tweet = Tweet.new
 
     respond_to do |format|
@@ -82,5 +86,11 @@ class TweetsController < ApplicationController
       format.html { redirect_to(tweets_url) }
       format.xml  { head :ok }
     end
+  end
+  
+  private
+  
+  def find_user
+    @user = User.find(params[:user_id]) if params[:user_id]
   end
 end

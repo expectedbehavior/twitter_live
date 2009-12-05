@@ -1,0 +1,19 @@
+<h1>New stalking</h1>
+
+<% form_for(@stalking) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :stalker_id %><br />
+    <%= f.text_field :stalker_id %>
+  </p>
+  <p>
+    <%= f.label :stalkee_id %><br />
+    <%= f.text_field :stalkee_id %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', stalkings_path %>

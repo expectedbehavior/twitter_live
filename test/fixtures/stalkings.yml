@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  stalker_id: 1
+  stalkee_id: 1
+
+two:
+  stalker_id: 1
+  stalkee_id: 1

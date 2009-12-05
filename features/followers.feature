@@ -18,7 +18,7 @@ Feature: Follow my friends
     Then I should not see "I'm like totally skinny, and have no marketable skills"
     When I view the homepage of "Bruce"
     And I click "follow"
-    Then I should see "You are now following Bruce"
+    Then I should see "You are now following bruce"
     When I click "logout"
     And I log in as "Bruce"
     And I fill in "What's happening?" with "I'll hash your face"

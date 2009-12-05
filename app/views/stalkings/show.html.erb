@@ -1,0 +1,13 @@
+<p>
+  <b>Stalker:</b>
+  <%=h @stalking.stalker_id %>
+</p>
+
+<p>
+  <b>Stalkee:</b>
+  <%=h @stalking.stalkee_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_stalking_path(@stalking) %> |
+<%= link_to 'Back', stalkings_path %>

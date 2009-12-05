@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
   include Authorization::AasmRoles
 
   has_many :tweets
+  has_many :stalkings, :foreign_key => "stalker_id"
+  has_many :stalkers, :through => :stalkings, :source => :stalkee
   
   validates_presence_of     :login
   validates_length_of       :login,    :within => 3..40
@@ -48,6 +50,10 @@ class User < ActiveRecord::Base
 
   def email=(value)
     write_attribute :email, (value ? value.downcase : nil)
+  end
+  
+  def timeline
+    Tweet.all(:all, :conditions => {:user_id => self.stalkers.map(&:id) << self.id })
   end
 
   protected

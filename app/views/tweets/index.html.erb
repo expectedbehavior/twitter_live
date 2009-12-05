@@ -1,13 +1,19 @@
-<% form_for(@tweet) do |f| %>
-  <%= f.error_messages %>
-
-  <p>
-    <%= f.label :content, "What's happening?" %><br />
-    <%= f.text_field :content %>
-  </p>
-  <p>
-    <%= f.submit 'update' %>
-  </p>
+<% if logged_in? %>
+  <% if current_user == @user %>
+    <% form_for(@tweet) do |f| %>
+      <%= f.error_messages %>
+    
+      <p>
+        <%= f.label :content, "What's happening?" %><br />
+        <%= f.text_field :content %>
+      </p>
+      <p>
+        <%= f.submit 'update' %>
+      </p>
+    <% end %>
+  <% else %>
+    <%= link_to "follow", stalkings_path(:stalking => {:stalkee_id => @user.id}), :method => :post if @user %>
+  <% end %>
 <% end %>
 
 
