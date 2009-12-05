@@ -8,10 +8,6 @@ class Tweet < ActiveRecord::Base
   end
 
   def self.trends(options = {})
-    require 'ruby-debug'
-    Debugger.start
-    debugger
-
     default_options = { 
       :start_time => 1.minute.ago
     }
