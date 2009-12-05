@@ -16,8 +16,6 @@ class Tweet < ActiveRecord::Base
     
     trending_tweets = Tweet.find(:all, :conditions => {:created_at => options[:start_time]..1.day.from_now})
     
-
-    
     trend_count = {}
     trending_tweets.each do |tweet|
       tags = tweet.content.split(" ").select {|word| word =~ /^#/ }
