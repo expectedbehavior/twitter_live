@@ -9,6 +9,9 @@ class User < ActiveRecord::Base
   has_many :tweets
   has_many :followings, :foreign_key => "follower_id"
   has_many :followees, :through => :followings, :source => :followee
+
+  has_many :sent_messages, :class_name => "DirectMessage", :foreign_key => "sender_id"
+  has_many :received_messages, :class_name => "DirectMessage", :foreign_key => "receiver_id"
   
   validates_presence_of     :login
   validates_length_of       :login,    :within => 3..40
