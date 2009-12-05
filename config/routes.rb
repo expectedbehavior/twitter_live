@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :direct_messages
+
   map.resources :followings
 
   map.resources :tweets, :collection => { :search => :get }

@@ -1,0 +1,44 @@
+<h1>New direct_message</h1>
+
+<% form_for(@direct_message) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :receiver_id, "users" %><br />
+    <%= f.collection_select :receiver_id, User.all, :id, :name %>
+  </p>
+  <p>
+    <%= f.label :content, "Direct Message" %><br />
+    <%= f.text_field :content %>
+  </p>
+  <p>
+    <%= f.submit 'Send' %>
+  </p>
+<% end %>
+
+
+
+<h1>Listing direct_messages</h1>
+
+<table>
+  <tr>
+    <th>Sender</th>
+    <th>Receiver</th>
+    <th>Content</th>
+  </tr>
+
+<% @direct_messages.each do |direct_message| %>
+  <tr>
+    <td><%=h direct_message.sender_id %></td>
+    <td><%=h direct_message.receiver_id %></td>
+    <td><%=h direct_message.content %></td>
+    <td><%= link_to 'Show', direct_message %></td>
+    <td><%= link_to 'Edit', edit_direct_message_path(direct_message) %></td>
+    <td><%= link_to 'Destroy', direct_message, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New direct_message', new_direct_message_path %>

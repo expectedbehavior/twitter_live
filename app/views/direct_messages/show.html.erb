@@ -1,0 +1,18 @@
+<p>
+  <b>Sender:</b>
+  <%=h @direct_message.sender_id %>
+</p>
+
+<p>
+  <b>Receiver:</b>
+  <%=h @direct_message.receiver_id %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%=h @direct_message.content %>
+</p>
+
+
+<%= link_to 'Edit', edit_direct_message_path(@direct_message) %> |
+<%= link_to 'Back', direct_messages_path %>
